@@ -60,3 +60,27 @@ console.log(os.freemem());
 console.log(os.uptime());
 
 console.log(os.cpus().length); 
+
+const path = require("path");
+const filePath = path.join(__dirname, "assets", "poem.txt");
+console.log(filePath);
+
+console.log(path.basename(filePath));
+console.log(path.dirname(filePath));
+console.log(path.extname(filePath));
+
+console.log(path.join("assets", "..", "server.js")); // assets/../server.js → assets/../server.js (relative)
+console.log(path.resolve("assets", "..", "server.js"));
+
+const parts = path.parse(filePath);
+console.log(parts);
+console.log(process.version);
+console.log(process.platform);
+console.log(process.env.NODE_ENV);
+
+console.log(process.argv); // [ '/path/to/node', '/path/to/server.js', 'hello', 'world' ]
+console.log(process.argv[2]); // 'hello'
+
+
+process.stdout.write("Hello from stdout\n"); // newline only when you add \n
+process.stderr.write("Hello from stderr\n");
